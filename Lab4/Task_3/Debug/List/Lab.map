@@ -1,0 +1,248 @@
+###############################################################################
+#
+# IAR ELF Linker V8.11.3.13950/W32 for ARM                13/Nov/2019  18:06:01
+# Copyright 2007-2017 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\Matthew\Dropbox\EE 474\Lab 4x\Task_3\Debug\Exe\Lab.out
+#    Map file     =  
+#        C:\Users\Matthew\Dropbox\EE 474\Lab 4x\Task_3\Debug\List\Lab.map
+#    Command line =  
+#        -f C:\Users\Matthew\AppData\Local\Temp\EW755C.tmp
+#        ("C:\Users\Matthew\Dropbox\EE 474\Lab
+#        4x\Task_3\Debug\Obj\cstartup_M.o" "C:\Users\Matthew\Dropbox\EE 474\Lab
+#        4x\Task_3\Debug\Obj\main.o" "C:\Users\Matthew\Dropbox\EE 474\Lab
+#        4x\Task_3\Debug\Obj\SSD2119.o" -o "C:\Users\Matthew\Dropbox\EE 474\Lab
+#        4x\Task_3\Debug\Exe\Lab.out" --redirect _Printf=_PrintfFullNoMb
+#        --redirect _Scanf=_ScanfFullNoMb --map "C:\Users\Matthew\Dropbox\EE
+#        474\Lab 4x\Task_3\Debug\List\Lab.map" --config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench
+#        8.0\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x0003ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x20000000 to 0x20007fff] {
+          rw, block CSTACK, block HEAP };
+
+  Section          Kind        Address    Size  Object
+  -------          ----        -------    ----  ------
+"A0":                                     0x90
+  .intvec          const    0x00000000    0x90  cstartup_M.o [1]
+                          - 0x00000090    0x90
+
+"P1":                                    0xbe6
+  .text            ro code  0x00000090   0x5d0  main.o [1]
+  .text            ro code  0x00000660   0x514  SSD2119.o [1]
+  .text            ro code  0x00000b74    0x40  zero_init3.o [5]
+  .text            ro code  0x00000bb4    0x28  data_init.o [5]
+  .text            ro code  0x00000bdc    0x22  fpinit_M.o [4]
+  .iar.init_table  const    0x00000c00    0x10  - Linker created -
+  .text            ro code  0x00000c10     0x2  cstartup_M.o [1]
+  .text            ro code  0x00000c14    0x1a  cmain.o [5]
+  .text            ro code  0x00000c2e     0x4  low_level_init.o [3]
+  .text            ro code  0x00000c32     0x4  exit.o [3]
+  .text            ro code  0x00000c36     0x2  cstartup_M.o [1]
+  .text            ro code  0x00000c38     0xa  cexit.o [5]
+  .text            ro code  0x00000c42     0x2  cstartup_M.o [1]
+  .text            ro code  0x00000c44    0x14  exit.o [6]
+  .text            ro code  0x00000c58    0x10  cstartup_M.o [1]
+  .text            ro code  0x00000c68     0x2  cstartup_M.o [1]
+  .text            ro code  0x00000c6a     0x2  cstartup_M.o [1]
+  .text            ro code  0x00000c6c     0x2  cstartup_M.o [1]
+  .text            ro code  0x00000c6e     0x2  cstartup_M.o [1]
+  .text            ro code  0x00000c70     0x2  cstartup_M.o [1]
+  .text            ro code  0x00000c72     0x2  cstartup_M.o [1]
+  .text            ro code  0x00000c74     0x2  cstartup_M.o [1]
+  .rodata          const    0x00000c76     0x0  zero_init3.o [5]
+                          - 0x00000c76   0xbe6
+
+"P2", part 1 of 2:                        0x20
+  .bss             zero     0x20000000     0x4  main.o [1]
+  .bss             zero     0x20000004     0x2  main.o [1]
+  .bss             zero     0x20000006     0x2  main.o [1]
+  .bss             zero     0x20000008     0x2  main.o [1]
+  .bss             zero     0x2000000a     0x2  main.o [1]
+  .bss             zero     0x2000000c     0x2  main.o [1]
+  .bss             zero     0x2000000e     0x2  main.o [1]
+  .bss             zero     0x20000010     0x2  main.o [1]
+  .bss             zero     0x20000012     0x2  main.o [1]
+  .bss             zero     0x20000014     0x2  SSD2119.o [1]
+  .bss             zero     0x20000016     0x2  SSD2119.o [1]
+  .bss             zero     0x20000018     0x2  SSD2119.o [1]
+  .bss             zero     0x2000001a     0x1  main.o [1]
+  .bss             zero     0x2000001b     0x1  main.o [1]
+  .bss             zero     0x2000001c     0x1  main.o [1]
+                          - 0x2000001d    0x1d
+
+"P2", part 2 of 2:                      0x1000
+  CSTACK                    0x20000020  0x1000  <Block>
+    CSTACK         uninit   0x20000020  0x1000  <Block tail>
+                          - 0x20001020  0x1000
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x1d:
+          0x20000000  0x1d
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+C:\Users\Matthew\Dropbox\EE 474\Lab 4x\Task_3\Debug\Obj: [1]
+    SSD2119.o           1 300                 6
+    cstartup_M.o           36      144
+    main.o              1 488                23
+    -------------------------------------------
+    Total:              2 824      144       29
+
+command line: [2]
+    -------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+m7M_tls.a: [4]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [5]
+    cexit.o                10
+    cmain.o                26
+    data_init.o            40
+    zero_init3.o           64
+    -------------------------------------------
+    Total:                140
+
+shb_l.a: [6]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    2        2
+    Linker created                  16    4 096
+-----------------------------------------------
+    Grand Total:        3 028      162    4 125
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00000c00          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00000c10          --   Gb  - Linker created -
+?main                   0x00000c15         Code  Gb  cmain.o [5]
+BLACK                   0x20000004    0x2  Data  Gb  main.o [1]
+CSTACK$$Base            0x20000020          --   Gb  - Linker created -
+CSTACK$$Limit           0x20001020          --   Gb  - Linker created -
+DARK_GREEN              0x2000000a    0x2  Data  Gb  main.o [1]
+DARK_RED                0x2000000e    0x2  Data  Gb  main.o [1]
+DARK_YELLOW             0x20000012    0x2  Data  Gb  main.o [1]
+GREEN                   0x20000008    0x2  Data  Gb  main.o [1]
+LCD_ColorFill           0x0000096d   0x1c  Code  Gb  SSD2119.o [1]
+LCD_DrawFilledCircle    0x00000a71   0xf4  Code  Gb  SSD2119.o [1]
+LCD_DrawFilledRect      0x00000a11   0x60  Code  Gb  SSD2119.o [1]
+LCD_DrawPixel           0x000009dd   0x34  Code  Gb  SSD2119.o [1]
+LCD_GPIOInit            0x00000661   0x98  Code  Gb  SSD2119.o [1]
+LCD_Init                0x000007ab  0x1a2  Code  Gb  SSD2119.o [1]
+LCD_SetCursor           0x00000989    0xe  Code  Gb  SSD2119.o [1]
+LCD_SetTextColor        0x00000997   0x20  Code  Gb  SSD2119.o [1]
+LCD_WriteCommand        0x000006f9   0x56  Code  Gb  SSD2119.o [1]
+LCD_WriteData           0x0000074f   0x5c  Code  Gb  SSD2119.o [1]
+PED_pressed             0x2000001c    0x1  Data  Gb  main.o [1]
+PORTF_Init              0x0000022d   0x72  Code  Gb  main.o [1]
+POW_pressed             0x2000001b    0x1  Data  Gb  main.o [1]
+RED                     0x2000000c    0x2  Data  Gb  main.o [1]
+Region$$Table$$Base     0x00000c00          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000c10          --   Gb  - Linker created -
+Stoplight_Draw          0x000004ad  0x11a  Code  Gb  main.o [1]
+Stoplight_Init          0x000003f7   0xb6  Code  Gb  main.o [1]
+TIMER0_Handler          0x000001dd   0x50  Code  Gb  main.o [1]
+TIMER0_Init             0x0000029f   0x72  Code  Gb  main.o [1]
+TIMER0_reload           0x00000345   0x2a  Code  Gb  main.o [1]
+TIMER0_start            0x00000311   0x1a  Code  Gb  main.o [1]
+TIMER0_stop             0x0000032b   0x1a  Code  Gb  main.o [1]
+TIMER1_Init             0x0000036f   0x44  Code  Gb  main.o [1]
+TIMER1_reload           0x000003cd   0x2a  Code  Gb  main.o [1]
+TIMER1_stop             0x000003b3   0x1a  Code  Gb  main.o [1]
+WHITE                   0x20000006    0x2  Data  Gb  main.o [1]
+YELLOW                  0x20000010    0x2  Data  Gb  main.o [1]
+__cmain                 0x00000c15         Code  Gb  cmain.o [5]
+__exit                  0x00000c45   0x14  Code  Gb  exit.o [6]
+__iar_data_init3        0x00000bb5   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp          0x00000bdd         Code  Gb  fpinit_M.o [4]
+__iar_program_start     0x00000c59   0x10  Code  Gb  cstartup_M.o [1]
+__iar_systems$$module {Abs}
+                        0x00000001         Data  Gb  command line/config [2]
+__iar_zero_init3        0x00000b75   0x40  Code  Gb  zero_init3.o [5]
+__low_level_init        0x00000c2f    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000   0x90  Data  Gb  cstartup_M.o [1]
+_call_main              0x00000c21         Code  Gb  cmain.o [5]
+_exit                   0x00000c39         Code  Gb  cexit.o [5]
+_main                   0x00000c2b         Code  Gb  cmain.o [5]
+convertColor            0x0000094d   0x20  Code  Gb  SSD2119.o [1]
+current                 0x2000001a    0x1  Data  Gb  main.o [1]
+cursorX                 0x20000014    0x2  Data  Gb  SSD2119.o [1]
+cursorY                 0x20000016    0x2  Data  Gb  SSD2119.o [1]
+exit                    0x00000c33    0x4  Code  Gb  exit.o [3]
+isOn                    0x20000000    0x4  Data  Gb  main.o [1]
+main                    0x00000091  0x14c  Code  Gb  main.o [1]
+textColor               0x20000018    0x2  Data  Gb  SSD2119.o [1]
+
+
+[1] = C:\Users\Matthew\Dropbox\EE 474\Lab 4x\Task_3\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  3 028 bytes of readonly  code memory
+    162 bytes of readonly  data memory
+  4 125 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
